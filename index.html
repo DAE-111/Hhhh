@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConsBlock – Minecraft Server Indonesia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar" id="navbar">
+    <div class="container navbar__inner">
+      <a href="#" class="navbar__logo">
+        <span class="logo-icon">⛏</span>
+        <span class="logo-text">Cons<span class="accent">Block</span></span>
+      </a>
+
+      <button class="navbar__toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="navbar__menu" id="navMenu">
+        <a href="#home"     class="nav-link">Beranda</a>
+        <a href="#modes"    class="nav-link">Mode Permainan</a>
+        <a href="#features" class="nav-link">Fitur</a>
+        <a href="#vote"     class="nav-link">Vote</a>
+        <a href="#store"    class="nav-link btn btn--outline">Toko</a>
+        <a href="#discord"  class="nav-link btn btn--primary">Discord</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="home">
+    <div class="hero__bg"></div>
+    <div class="hero__particles" id="particles"></div>
+
+    <div class="container hero__content">
+      <div class="hero__badge">🎮 SERVER AKTIF</div>
+      <h1 class="hero__title">Selamat Datang di<br /><span class="accent glow">ConsBlock</span></h1>
+      <p class="hero__subtitle">Server Minecraft Indonesia terbaik dengan berbagai mode permainan seru, komunitas yang ramah, dan pengalaman bermain tak terlupakan!</p>
+
+      <div class="hero__ip-card">
+        <span class="ip-label">IP SERVER</span>
+        <div class="ip-box">
+          <span class="ip-text" id="serverIP">play.consblock.fun</span>
+          <button class="ip-copy btn btn--glow" id="copyBtn" onclick="copyIP()">Salin</button>
+        </div>
+        <div class="ip-meta">
+          <span class="ip-version">Java &amp; Bedrock · 1.8 – 1.21</span>
+          <span class="ip-players">
+            <span class="status-dot"></span>
+            <span id="playerCount">Loading…</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero__cta">
+        <a href="#modes" class="btn btn--primary btn--lg">Jelajahi Mode</a>
+        <a href="#discord" class="btn btn--outline btn--lg">Bergabung Discord</a>
+      </div>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <span>Scroll ke bawah</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ===================== STATS BAR ===================== -->
+  <section class="stats-bar">
+    <div class="container stats-bar__inner">
+      <div class="stat-item">
+        <span class="stat-num" data-target="15000">0</span>
+        <span class="stat-label">Total Pemain</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="8">0</span>
+        <span class="stat-label">Mode Permainan</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="99">0</span>
+        <span class="stat-label">% Uptime</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num" data-target="3">0</span>
+        <span class="stat-label">Tahun Berjalan</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GAME MODES ===================== -->
+  <section class="modes section" id="modes">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">⚔️ Mode Permainan</span>
+        <h2 class="section-title">Pilih Petualanganmu</h2>
+        <p class="section-desc">Dari survival klasik hingga mini-game seru — ConsBlock punya semuanya.</p>
+      </div>
+
+      <div class="modes__grid">
+
+        <div class="mode-card mode-card--featured" data-mode="survival">
+          <div class="mode-card__banner" style="--mode-color:#4caf50;">
+            <span class="mode-card__icon">🌿</span>
+            <span class="mode-card__badge">POPULER</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Survival</h3>
+            <p>Bangun, eksplorasi, dan bertahan hidup di dunia Minecraft yang luas bersama ratusan pemain lain.</p>
+            <div class="mode-card__tags">
+              <span class="tag">PvP</span>
+              <span class="tag">Economy</span>
+              <span class="tag">Claims</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="skyblock">
+          <div class="mode-card__banner" style="--mode-color:#03a9f4;">
+            <span class="mode-card__icon">☁️</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>SkyBlock</h3>
+            <p>Mulai dari pulau kecil di langit dan kembangkan kerajaanmu sendiri dari nol.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Islands</span>
+              <span class="tag">Challenges</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="factions">
+          <div class="mode-card__banner" style="--mode-color:#f44336;">
+            <span class="mode-card__icon">⚔️</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Factions</h3>
+            <p>Bergabunglah dengan faksi, buat aliansi, dan taklukkan musuhmu dalam peperangan epik.</p>
+            <div class="mode-card__tags">
+              <span class="tag">War</span>
+              <span class="tag">Raid</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="bedwars">
+          <div class="mode-card__banner" style="--mode-color:#ff9800;">
+            <span class="mode-card__icon">🛏️</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Bed Wars</h3>
+            <p>Lindungi tempat tidurmu dan hancurkan tempat tidur musuh dalam pertempuran tim yang intens.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Team</span>
+              <span class="tag">Strategy</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="skywars">
+          <div class="mode-card__banner" style="--mode-color:#9c27b0;">
+            <span class="mode-card__icon">🏝️</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Sky Wars</h3>
+            <p>Bertarung di pulau-pulau di langit dan jadilah yang terakhir bertahan untuk menang.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Solo</span>
+              <span class="tag">Duo</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="creative">
+          <div class="mode-card__banner" style="--mode-color:#00bcd4;">
+            <span class="mode-card__icon">🎨</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Creative</h3>
+            <p>Wujudkan imajinasimu tanpa batas di mode kreatif bersama komunitas builder terbaik Indonesia.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Build</span>
+              <span class="tag">Plot</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="prison">
+          <div class="mode-card__banner" style="--mode-color:#795548;">
+            <span class="mode-card__icon">⛏️</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Prison</h3>
+            <p>Mulai sebagai narapidana dan naiki ranking untuk menjadi pemain terkuat di penjara.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Mine</span>
+              <span class="tag">Rank Up</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="minigames">
+          <div class="mode-card__banner" style="--mode-color:#e91e63;">
+            <span class="mode-card__icon">🎮</span>
+          </div>
+          <div class="mode-card__body">
+            <h3>Mini Games</h3>
+            <p>Nikmati berbagai mini game seru yang terus diperbarui – TNT Run, Spleef, Murder Mystery, dan lainnya.</p>
+            <div class="mode-card__tags">
+              <span class="tag">Fun</span>
+              <span class="tag">Party</span>
+            </div>
+            <a href="#" class="btn btn--sm btn--mode">Mainkan</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FEATURES ===================== -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">✨ Keunggulan</span>
+        <h2 class="section-title">Mengapa ConsBlock?</h2>
+        <p class="section-desc">Kami menghadirkan pengalaman Minecraft terbaik dengan teknologi dan komunitas terdepan.</p>
+      </div>
+
+      <div class="features__grid">
+        <div class="feature-card">
+          <div class="feature-card__icon">🚀</div>
+          <h3>Server Cepat &amp; Stabil</h3>
+          <p>Infrastruktur premium dengan low latency yang memastikan pengalaman bermain tanpa lag.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🛡️</div>
+          <h3>Anti-Cheat Canggih</h3>
+          <p>Sistem anti-cheat terbaru melindungi game dari hacker dan cheater agar permainan tetap fair.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">💰</div>
+          <h3>Ekonomi Seimbang</h3>
+          <p>Sistem ekonomi in-game yang terancang dengan baik sehingga setiap pemain bisa berkembang.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🎁</div>
+          <h3>Event &amp; Hadiah Rutin</h3>
+          <p>Event mingguan dan bulanan dengan hadiah menarik untuk semua level pemain.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">👥</div>
+          <h3>Komunitas Ramah</h3>
+          <p>Komunitas Discord aktif dengan lebih dari 15.000 anggota siap membantu dan bermain bersama.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card__icon">🔄</div>
+          <h3>Update Rutin</h3>
+          <p>Konten baru setiap minggu — fitur, mode, dan item yang terus berkembang mengikuti versi Minecraft terbaru.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== HOW TO PLAY ===================== -->
+  <section class="howto section" id="howto">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">📖 Cara Bermain</span>
+        <h2 class="section-title">Mulai dalam 3 Langkah</h2>
+      </div>
+      <div class="howto__steps">
+        <div class="step">
+          <div class="step__num">1</div>
+          <div class="step__body">
+            <h3>Buka Minecraft</h3>
+            <p>Buka Minecraft Java Edition atau Bedrock Edition di perangkatmu. Pastikan versi 1.8 ke atas.</p>
+          </div>
+        </div>
+        <div class="step__arrow">→</div>
+        <div class="step">
+          <div class="step__num">2</div>
+          <div class="step__body">
+            <h3>Tambahkan Server</h3>
+            <p>Pilih Multiplayer, klik "Add Server", lalu masukkan IP: <strong>play.consblock.fun</strong></p>
+          </div>
+        </div>
+        <div class="step__arrow">→</div>
+        <div class="step">
+          <div class="step__num">3</div>
+          <div class="step__body">
+            <h3>Bergabung &amp; Bermain!</h3>
+            <p>Klik Join Server dan mulai petualanganmu di dunia ConsBlock bersama ribuan pemain lain!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VOTE ===================== -->
+  <section class="vote section" id="vote">
+    <div class="container vote__inner">
+      <div class="vote__text">
+        <span class="section-tag">🗳️ Vote</span>
+        <h2 class="section-title">Vote Setiap Hari, Dapatkan Reward!</h2>
+        <p>Dukung ConsBlock dengan vote setiap 24 jam dan dapatkan item eksklusif, uang in-game, dan banyak hadiah lainnya secara gratis!</p>
+        <div class="vote__buttons">
+          <a href="#" class="btn btn--primary btn--lg">Vote Sekarang</a>
+          <a href="#" class="btn btn--outline btn--lg">Lihat Reward</a>
+        </div>
+      </div>
+      <div class="vote__image">
+        <div class="vote__chest">
+          <div class="chest-icon">🎁</div>
+          <div class="chest-shine"></div>
+        </div>
+        <div class="vote__particles">
+          <span class="vp vp1">⭐</span>
+          <span class="vp vp2">💎</span>
+          <span class="vp vp3">🪙</span>
+          <span class="vp vp4">⭐</span>
+          <span class="vp vp5">💎</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== STORE ===================== -->
+  <section class="store section" id="store">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">🛒 Toko</span>
+        <h2 class="section-title">Tingkatkan Pengalamanmu</h2>
+        <p class="section-desc">Dapatkan rank, kit, dan item spesial untuk meningkatkan perjalananmu di ConsBlock.</p>
+      </div>
+      <div class="store__grid">
+
+        <div class="rank-card rank-card--free">
+          <div class="rank-card__header">
+            <span class="rank-badge">🌱</span>
+            <h3>Default</h3>
+            <div class="rank-price">Gratis</div>
+          </div>
+          <ul class="rank-perks">
+            <li>✓ Akses semua mode game</li>
+            <li>✓ 1 home</li>
+            <li>✓ Chat global</li>
+          </ul>
+          <a href="#" class="btn btn--outline btn--full">Main Sekarang</a>
+        </div>
+
+        <div class="rank-card rank-card--vip">
+          <div class="rank-card__header">
+            <span class="rank-badge">⭐</span>
+            <h3>VIP</h3>
+            <div class="rank-price">Rp 25.000<span>/bulan</span></div>
+          </div>
+          <ul class="rank-perks">
+            <li>✓ Semua fitur Default</li>
+            <li>✓ 5 homes</li>
+            <li>✓ Prefix [VIP] berwarna</li>
+            <li>✓ Fly di lobby</li>
+            <li>✓ Kit VIP harian</li>
+          </ul>
+          <a href="#" class="btn btn--primary btn--full">Beli VIP</a>
+        </div>
+
+        <div class="rank-card rank-card--mvp">
+          <div class="rank-card__header">
+            <span class="rank-badge">💎</span>
+            <h3>MVP</h3>
+            <div class="rank-price">Rp 50.000<span>/bulan</span></div>
+            <span class="rank-popular">TERPOPULER</span>
+          </div>
+          <ul class="rank-perks">
+            <li>✓ Semua fitur VIP</li>
+            <li>✓ 15 homes</li>
+            <li>✓ Prefix [MVP] animasi</li>
+            <li>✓ Fly di semua world</li>
+            <li>✓ Kit MVP harian</li>
+            <li>✓ Custom join message</li>
+          </ul>
+          <a href="#" class="btn btn--glow btn--full">Beli MVP</a>
+        </div>
+
+        <div class="rank-card rank-card--legend">
+          <div class="rank-card__header">
+            <span class="rank-badge">👑</span>
+            <h3>Legend</h3>
+            <div class="rank-price">Rp 100.000<span>/bulan</span></div>
+          </div>
+          <ul class="rank-perks">
+            <li>✓ Semua fitur MVP</li>
+            <li>✓ Unlimited homes</li>
+            <li>✓ Prefix kustom</li>
+            <li>✓ Private warps</li>
+            <li>✓ Kit Legend harian</li>
+            <li>✓ Akses beta features</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <a href="#" class="btn btn--outline btn--full">Beli Legend</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DISCORD CTA ===================== -->
+  <section class="discord-cta section" id="discord">
+    <div class="discord-cta__bg"></div>
+    <div class="container discord-cta__inner">
+      <div class="discord-logo">
+        <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M60.105 4.898A58.549 58.549 0 0 0 45.653.415a.219.219 0 0 0-.232.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0a37.368 37.368 0 0 0-1.827-3.697.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.031c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .232.028c.356.293.728.593 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084zM23.725 37.449c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.827-7.157 6.38-7.157 3.583 0 6.438 3.24 6.38 7.157 0 3.946-2.827 7.158-6.38 7.158zm23.59 0c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.826-7.157 6.38-7.157 3.582 0 6.437 3.24 6.38 7.157 0 3.946-2.798 7.158-6.38 7.158z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="discord-cta__text">
+        <h2>Bergabunglah dengan Komunitas Kami!</h2>
+        <p>Lebih dari <strong>15.000+ anggota</strong> aktif menanti di Discord ConsBlock. Dapatkan info update terbaru, ikut event, dan temukan teman bermain baru.</p>
+        <a href="#" class="btn btn--discord btn--lg">
+          <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg" class="discord-btn-icon"><path d="M60.105 4.898A58.549 58.549 0 0 0 45.653.415a.219.219 0 0 0-.232.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0a37.368 37.368 0 0 0-1.827-3.697.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.031c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .232.028c.356.293.728.593 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084zM23.725 37.449c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.827-7.157 6.38-7.157 3.583 0 6.438 3.24 6.38 7.157 0 3.946-2.827 7.158-6.38 7.158zm23.59 0c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.826-7.157 6.38-7.157 3.582 0 6.437 3.24 6.38 7.157 0 3.946-2.798 7.158-6.38 7.158z" fill="currentColor"/></svg>
+          Gabung Discord
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+
+      <div class="footer__brand">
+        <a href="#" class="navbar__logo">
+          <span class="logo-icon">⛏</span>
+          <span class="logo-text">Cons<span class="accent">Block</span></span>
+        </a>
+        <p>Server Minecraft Indonesia terbaik sejak 2022. Bergabunglah dengan ribuan pemain dan ciptakan petualangan tak terlupakan.</p>
+        <div class="footer__social">
+          <a href="#" class="social-link" aria-label="Discord">
+            <svg viewBox="0 0 71 55" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M60.105 4.898A58.549 58.549 0 0 0 45.653.415a.219.219 0 0 0-.232.11 40.784 40.784 0 0 0-1.8 3.697c-5.456-.817-10.886-.817-16.23 0a37.368 37.368 0 0 0-1.827-3.697.228.228 0 0 0-.233-.11 58.386 58.386 0 0 0-14.451 4.483.207.207 0 0 0-.095.082C1.578 18.73-.944 32.144.293 45.39a.244.244 0 0 0 .093.167c6.073 4.46 11.955 7.167 17.729 8.962a.23.23 0 0 0 .249-.082 42.08 42.08 0 0 0 3.627-5.9.225.225 0 0 0-.123-.312 38.772 38.772 0 0 1-5.539-2.64.228.228 0 0 1-.022-.378 31.17 31.17 0 0 0 1.1-.862.22.22 0 0 1 .23-.031c11.619 5.304 24.198 5.304 35.68 0a.219.219 0 0 1 .232.028c.356.293.728.593 1.103.865a.228.228 0 0 1-.02.378 36.384 36.384 0 0 1-5.54 2.637.227.227 0 0 0-.121.315 47.249 47.249 0 0 0 3.624 5.897.225.225 0 0 0 .249.084c5.801-1.794 11.684-4.502 17.757-8.961a.228.228 0 0 0 .092-.164c1.48-15.315-2.48-28.618-10.497-40.412a.18.18 0 0 0-.093-.084zM23.725 37.449c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.827-7.157 6.38-7.157 3.583 0 6.438 3.24 6.38 7.157 0 3.946-2.827 7.158-6.38 7.158zm23.59 0c-3.498 0-6.38-3.212-6.38-7.158 0-3.945 2.826-7.157 6.38-7.157 3.582 0 6.437 3.24 6.38 7.157 0 3.946-2.798 7.158-6.38 7.158z" fill="currentColor"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.75a4.85 4.85 0 0 1-1.01-.06z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__links">
+        <div class="footer__col">
+          <h4>Server</h4>
+          <ul>
+            <li><a href="#modes">Mode Permainan</a></li>
+            <li><a href="#features">Fitur</a></li>
+            <li><a href="#vote">Vote</a></li>
+            <li><a href="#store">Toko</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Komunitas</h4>
+          <ul>
+            <li><a href="#">Discord</a></li>
+            <li><a href="#">Forum</a></li>
+            <li><a href="#">Leaderboard</a></li>
+            <li><a href="#">Staff</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Bantuan</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Aturan Server</a></li>
+            <li><a href="#">Laporkan Bug</a></li>
+            <li><a href="#">Kontak Admin</a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container footer__bottom-inner">
+        <p>&copy; 2024 ConsBlock. Semua hak dilindungi.</p>
+        <div class="footer__bottom-links">
+          <a href="#">Kebijakan Privasi</a>
+          <a href="#">Syarat &amp; Ketentuan</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== TOAST ===================== -->
+  <div class="toast" id="toast">IP Disalin! 🎉</div>
+
+  <script src="script.js"></script>
+</body>
+</html>
